@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevStore - Full E-Commerce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="modal">
+  <div class="modal-content">
+    <span id="closeCheckout" class="close-btn">&times;</span>
+    <h2>Checkout Details</h2>
+    
+    <form id="checkoutForm">
+      <!-- Shipping Information -->
+      <div class="form-section">
+        <h3>Shipping Information</h3>
+        <input type="text" id="shipAddress" placeholder="Street Address" required>
+        <input type="text" id="shipCity" placeholder="City" required>
+        <input type="tel" id="shipPhone" placeholder="Phone Number" required>
+      </div>
+
+      <!-- Billing Information -->
+      <div class="form-section">
+        <h3>Billing Information</h3>
+        <input type="text" id="cardNumber" placeholder="Card Number (16 digits)" maxlength="16" required>
+        <div class="form-row" style="display: flex; gap: 10px;">
+          <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+          <input type="text" id="cardCVV" placeholder="CVV" maxlength="3" required>
+        </div>
+      </div>
+
+      <button type="submit" class="checkout-submit-btn">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="logo">DevStore</div>
+    <div class="nav-actions">
+      <span id="userInfo" class="user-info" style="display: none;">Welcome, <b id="usernameDisplay"></b>!</span>
+      <button id="ordersBtn" class="nav-btn" style="display: none;">My Orders</button>
+      <button id="loginModalBtn" class="nav-btn">Sign In</button>
+      <button id="logoutBtn" class="nav-btn logout-btn" style="display: none;">Logout</button>
+      <div class="cart-icon" id="cartBtn">
+        🛒 Cart (<span id="cartCount">0</span>)
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Store Container -->
+  <main class="container">
+    <!-- Products View -->
+    <section id="productsSection">
+      <h2>Explore Products</h2>
+      <div class="products-grid" id="productsGrid">
+        <p>Loading products...</p>
+      </div>
+    </section>
+
+    <!-- Orders View (Hidden by default) -->
+    <section id="ordersSection" style="display: none;">
+      <button id="backToStoreBtn" class="back-btn">← Back to Store</button>
+      <h2>My Order History</h2>
+      <div id="ordersList" class="orders-list">
+        <p>No past orders yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sliding Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Shopping Cart</h3>
+      <button id="closeCartBtn">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <p class="empty-msg">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer">
+      <h4>Total: $<span id="cartTotal">0.00</span></h4>
+      <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Sign In / Sign Up Modal -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-card">
+      <button class="close-modal" id="closeAuthModal">&times;</button>
+      <h3 id="modalTitle">Sign In</h3>
+      
+      <form id="authForm">
+        <input type="text" id="usernameInput" placeholder="Enter Username" required>
+        <input type="password" id="passwordInput" placeholder="Enter Password" required>
+        <button type="submit" id="authSubmitBtn" class="submit-btn">Sign In</button>
+      </form>
+
+      <p class="toggle-text">
+        <span id="toggleAuthText">Don't have an account?</span> 
+        <a href="#" id="toggleAuthMode">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
